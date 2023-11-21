@@ -6,7 +6,7 @@ import os
 from io import BytesIO
 import base64
 
-b="app/static/tempimage.jpg"
+b="./app/static/tempimage.jpg"
 image_url = "https://imaginariumweaver.streamlit.app/app/static/tempimage.jpg"
 
 
