@@ -19,6 +19,21 @@ if uploaded_img is not None:
     # Display the uploaded image
     st.image(image, caption='Uploaded Image.', use_column_width=True)
     st.write("Please verify that this is the correct image. If not, please delete and upload a new image")
+    
+    # Save the uploaded image as a temporary file
+    temp_image_path = os.path.join("static", "temp_image.jpg")
+    with open(temp_image_path, "wb") as f:
+        f.write(uploaded_img.read())
+    
+    # Display the uploaded image
+    st.image(temp_image_path, caption="Uploaded Image", use_column_width=True)
+
+    # Create a URL for the uploaded image
+    app_url = "http://localhost:8501"  # Change this to your app's URL
+    image_url = f"{app_url}/app/static/temp_image.jpg"
+
+    # Display the URL as a clickable link
+    st.markdown(f"[![Click to view uploaded image]({image_url})]({image_url})")
 else:
     st.warning("Please upload an image.")  
 
