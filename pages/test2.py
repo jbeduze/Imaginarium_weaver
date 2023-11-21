@@ -21,7 +21,7 @@ if uploaded_img1 is not None:
     # Display the uploaded image
     st.image(image, caption='Uploaded Image.', use_column_width=True)
 
-with open(b, "wb") as f:
+with open(image_url, "wb") as f:
     uploaded_img1.seek(0)
     f.write(uploaded_img.read())
     st.markdown(f"[![Click to view uploaded image]({image_url})]({image_url})")
