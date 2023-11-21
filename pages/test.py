@@ -34,4 +34,4 @@ if 'image' in locals():
     }
 
 file_name = uploaded_img.name
-    st.write(f"Uploaded filename: {file_name}")
+st.write(f"Uploaded filename: {file_name}")
