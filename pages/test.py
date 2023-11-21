@@ -25,7 +25,7 @@ if uploaded_img is not None:
     with open(temp_image_path, "wb") as f:
         f.write(uploaded_img.read())
     
-    # Display the uploaded image
+    # Display the temporary image using st.image
     st.image(temp_image_path, caption="Uploaded Image", use_column_width=True)
 
     # Create a URL for the uploaded image
@@ -34,11 +34,8 @@ if uploaded_img is not None:
 
     # Display the URL as a clickable link
     st.markdown(f"[![Click to view uploaded image]({image_url})]({image_url})")
-else:
-    st.warning("Please upload an image.")  
 
-# Convert the PIL Image to base64 encoding
-if 'image' in locals():
+    # Convert the PIL Image to base64 encoding
     buffered = BytesIO()
     image.save(buffered, format="JPEG")  # Change format as needed
     image_base64 = base64.b64encode(buffered.getvalue()).decode()
@@ -48,5 +45,7 @@ if 'image' in locals():
         "mainCharacterImage": image_base64  # Include the base64 encoded image
     }
 
-file_name = uploaded_img.name
-st.write(f"Uploaded filename: {file_name}")
+    file_name = uploaded_img.name
+    st.write(f"Uploaded filename: {file_name}")
+else:
+    st.warning("Please upload an image.")  
