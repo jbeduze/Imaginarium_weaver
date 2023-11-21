@@ -29,7 +29,7 @@ if uploaded_img is not None:
     st.image(temp_image_path, caption="Uploaded Image", use_column_width=True)
 
     # Create a URL for the uploaded image
-    app_url = "http://localhost:8501"  # Change this to your app's URL
+    app_url = "https://imaginariumweaver.streamlit"  # Change this to your app's URL
     image_url = f"{app_url}/app/static/temp_image.jpg"
 
     # Display the URL as a clickable link
