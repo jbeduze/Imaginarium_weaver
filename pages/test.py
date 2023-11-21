@@ -23,6 +23,7 @@ if uploaded_img is not None:
     # Save the uploaded image as a temporary file
     temp_image_path = os.path.join("static", "temp_image.jpg")
     with open(temp_image_path, "wb") as f:
+        uploaded_img.seek(0)  # Rewind the file pointer to the beginning
         f.write(uploaded_img.read())
     
     # Display the temporary image using st.image
