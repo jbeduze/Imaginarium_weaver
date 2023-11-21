@@ -21,7 +21,7 @@ if uploaded_img is not None:
     st.write("Please verify that this is the correct image. If not, please delete and upload a new image")
     
     # Save the uploaded image as a temporary file
-    temp_image_path = os.path.join("static", "temp_image.jpg")
+    temp_image_path = os.path.join("static", "tempimage.jpg")
     with open(temp_image_path, "wb") as f:
         uploaded_img.seek(0)  # Rewind the file pointer to the beginning
         f.write(uploaded_img.read())
