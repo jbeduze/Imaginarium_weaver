@@ -6,5 +6,5 @@ a = st.file_uploader("upload image")
 b = "./app/static/tempimage.jpg"
 
 if a is not None:
-  im = Image(a)
+  im = Image(a.open())
   st.image(im)
