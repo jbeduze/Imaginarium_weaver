@@ -31,7 +31,7 @@ if uploaded_img is not None:
 
     # Create a URL for the uploaded image
     app_url = "https://imaginariumweaver.streamlit"  # Change this to your app's URL
-    image_url = f"{app_url}/app/~/+/static/tempimage.jpg"
+    image_url = f"{app_url}.app/~/+/static/tempimage.jpg"
 
     # Display the URL as a clickable link
     st.markdown(f"[![Click to view uploaded image]({image_url})]({image_url})")
