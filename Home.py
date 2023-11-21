@@ -1,7 +1,7 @@
 import streamlit as st
 from st_paywall import add_auth
 
-st.title("Welcome to Daddy Bets")
+st.title("Welcome to Imaginarium Weaver")
 
 add_auth(required=True)
 
