@@ -26,7 +26,7 @@ if uploaded_img is not None:
         f.write(uploaded_img.read())
     
     # Display the temporary image using st.image
-    st.image(temp_image_path, caption="Uploaded Image", use_column_width=True)
+    st.image(temp_image_path, caption="adsfad Image", use_column_width=True)
 
     # Create a URL for the uploaded image
     app_url = "https://imaginariumweaver.streamlit"  # Change this to your app's URL
