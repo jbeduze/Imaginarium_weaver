@@ -89,7 +89,8 @@ def checkout_form():
             footer_cols = st.columns([5,1])                 
             agreed = footer_cols[0].checkbox('I agree to terms and conditions')
             footer_cols[1].button('Submit',type='primary',key='submit_btn',disabled=not agreed)
-        if step == 'download finished materials'
+        if step == 'download finished materials':
+            st.write('set up')
         #only accesible if payment was submitted
 
 ##### wizard functions ####
