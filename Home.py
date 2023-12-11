@@ -3,8 +3,32 @@ import streamlit as st
 
 st.title("Welcome to Imaginarium Weaver")
 
+st.subtitle("Create custom printed material for a family member, a loved one, or anyone!")
+# File uploader allows user to add their own image
+uploaded_img = st.file_uploader("Upload a picture of the person/pet you'd like on a card, board, or coloring page", type=['png', 'jpg', 'jpeg', 'gif'])
+
+# Check if an image has been uploaded
+if uploaded_img is not None:
+    # To read image file buffer with PIL:
+    from PIL import Image
+    image = Image.open(uploaded_img)
+
+    # Display the uploaded image
+    st.image(image, caption='Uploaded Image.', use_column_width=True)
+    st.write("Please verify that this is the correct image. If not, please delete and upload a new image")
+else:
+    st.warning("Please upload an image.")
+
+relation= st.text_input("relation to the reciptient")
+if relation:
+    st.success(relation)
+
+name_of_reciptient= st.text_input("insert the name of the recipient here")
+if name_of_reciptient:
+    st.success(name_of_reciptient)
+"---"
+
 #def create_story_form():
-def create_story_form():
     with st.expander('',expanded=True):        
         st.markdown("Let's make a story")
         options = ['Storybook Elements','AI Builder','Summary/organize','Payment Information', 'download finished materials']        
@@ -176,30 +200,6 @@ def create_story_form():
 # st.write("congrats on your future winnings now get in there champ")
 # st.write(f'for your records and future logins, your email is: {st.session_state.email}')
 
-st.title("Create custom printed material for a family member, a loved one, or anyone!")
-# File uploader allows user to add their own image
-uploaded_img = st.file_uploader("Upload a picture of the person/pet you'd like on a card, board, or coloring page", type=['png', 'jpg', 'jpeg', 'gif'])
-
-# Check if an image has been uploaded
-if uploaded_img is not None:
-    # To read image file buffer with PIL:
-    from PIL import Image
-    image = Image.open(uploaded_img)
-
-    # Display the uploaded image
-    st.image(image, caption='Uploaded Image.', use_column_width=True)
-    st.write("Please verify that this is the correct image. If not, please delete and upload a new image")
-else:
-    st.warning("Please upload an image.")
-
-relation= st.text_input("relation to the reciptient")
-if relation:
-    st.success(relation)
-
-name_of_reciptient= st.text_input("insert the name of the recipient here")
-if name_of_reciptient:
-    st.success(name_of_reciptient)
-"---"
 
 ### end of picture and relation items ###
 
