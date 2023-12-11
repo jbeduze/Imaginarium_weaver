@@ -13,62 +13,62 @@ def checkout_form():
         step = radio_cols[1].radio(label='',label_visibility='collapsed', options=options,horizontal=True,index=0)                
         if step == 'Storybook Elements':
             st.text("build a story for your loved one! once you're done, send it over to them as a physical copy or as a digital file!")
-        def create_story_form():
-                # Genre options
-            genre = st.selectbox(
-                label=('Choose the Genre')
-                options=["Adventure", "Fairy Tale", "Animal Story", "Space Exploration", "Magical Fantasy", 
-                             "Historical Adventure", "Mythological Tale", "Superhero Story", "Time Travel Adventure", "Dystopian World", 
-                             "surprise me"]
-                )
-                # Setting options
-                setting = st.selectbox(
-                    "Choose the Setting:",
-                    options=["Enchanted Forest", "Outer Space", "Kingdom", "Under the Sea", "Mystical Mountain", 
-                             "Ancient Ruins", "Haunted House", "Futuristic City", "Magical Kingdom", "Pirate Ship", 
-                             "surprise me"]
-                )
-                # Supporting Characters options
-                supporting_characters = st.selectbox(
-                    "Choose Supporting Character(s):",
-                    options=["Wise Owl", "Funny Clown", "Talking Robot", "Friendly Dragon", "Mischievous Monkey", 
-                             "Brave Knight", "Mysterious Sorcerer", "Loyal Sidekick", "Royal Guard", "Clever Inventor", 
-                             "surprise me"],
-                )
-                # Plot Elements options
-                plot_elements = st.selectbox(
-                    "Choose Plot Elements:",
-                    options=["A Hidden Treasure", "A Grand Festival", "A Magic Spell", "A Daring Rescue", "A Secret Door", 
-                             "A Forbidden Love", "A Mysterious Prophecy", "A Legendary Sword", "An Unlikely Hero", "A Forbidden Spell", 
-                             "surprise me"]
-                )
-                # Theme options
-                theme = st.selectbox(
-                    "Choose the Theme:",
-                    options=["Friendship", "Courage", "Kindness", "Discovery", "Teamwork", 
-                             "Overcoming Fear", "Love and Sacrifice", "The Power of Imagination", "Trust and Betrayal", "Growth and Transformation", 
-                             "surprise me"]
-                )
-                # Object options
-                magical_objects = st.selectbox(
-                    "Choose Magical Objects:",
-                    options=["Magic Wand", "Enchanted Mirror", "Golden Key", "Flying Carpet", "Invisible Cloak", 
-                             "Time-Turning Hourglass", "Phoenix Feather", "Crystal Ball", "Shape-shifting Potion", "Teleportation Ring", 
-                             "surprise me"]
-                )
-                # Tone/Mood options
-                tone = st.selectbox(
-                    "Choose the Tone/Mood:",
-                    options=["Joyful", "Exciting", "Mysterious", "Playful", "Heartwarming", 
-                             "Suspenseful", "Whimsical", "Inspirational", "Spooky", "Nostalgic", 
-                             "surprise me"]
-                )
-                # Submit button
-                submitted = st.form_submit_button("Create Story")
-                if submitted:               # Process the selections and generate the story (this part will interface with the AI model)
-                    #def display_story_form(relation, name_of_reciptient, genre, setting, supporting_character, plot_elements, theme, magical_objects, tone):
-                        st.write(f"I'd like you create a story about my {relation}, {name_of_reciptient}. The story's Genre will be: {genre}, with a setting as: {setting}. A supporting character will be: {supporting_characters}, with a plot element of: {plot_elements}. The theme of the story is: {theme}, a magical object, included somewhere in the story is a: {magical_objects}, and the tone will be: {tone} ")
-        create_story_form(
+        # def create_story_form():
+        #         # Genre options
+        #     genre = st.selectbox(
+        #         label=('Choose the Genre')
+        #         options=["Adventure", "Fairy Tale", "Animal Story", "Space Exploration", "Magical Fantasy", 
+        #                      "Historical Adventure", "Mythological Tale", "Superhero Story", "Time Travel Adventure", "Dystopian World", 
+        #                      "surprise me"]
+        #         )
+        #         # Setting options
+        #         setting = st.selectbox(
+        #             "Choose the Setting:",
+        #             options=["Enchanted Forest", "Outer Space", "Kingdom", "Under the Sea", "Mystical Mountain", 
+        #                      "Ancient Ruins", "Haunted House", "Futuristic City", "Magical Kingdom", "Pirate Ship", 
+        #                      "surprise me"]
+        #         )
+        #         # Supporting Characters options
+        #         supporting_characters = st.selectbox(
+        #             "Choose Supporting Character(s):",
+        #             options=["Wise Owl", "Funny Clown", "Talking Robot", "Friendly Dragon", "Mischievous Monkey", 
+        #                      "Brave Knight", "Mysterious Sorcerer", "Loyal Sidekick", "Royal Guard", "Clever Inventor", 
+        #                      "surprise me"],
+        #         )
+        #         # Plot Elements options
+        #         plot_elements = st.selectbox(
+        #             "Choose Plot Elements:",
+        #             options=["A Hidden Treasure", "A Grand Festival", "A Magic Spell", "A Daring Rescue", "A Secret Door", 
+        #                      "A Forbidden Love", "A Mysterious Prophecy", "A Legendary Sword", "An Unlikely Hero", "A Forbidden Spell", 
+        #                      "surprise me"]
+        #         )
+        #         # Theme options
+        #         theme = st.selectbox(
+        #             "Choose the Theme:",
+        #             options=["Friendship", "Courage", "Kindness", "Discovery", "Teamwork", 
+        #                      "Overcoming Fear", "Love and Sacrifice", "The Power of Imagination", "Trust and Betrayal", "Growth and Transformation", 
+        #                      "surprise me"]
+        #         )
+        #         # Object options
+        #         magical_objects = st.selectbox(
+        #             "Choose Magical Objects:",
+        #             options=["Magic Wand", "Enchanted Mirror", "Golden Key", "Flying Carpet", "Invisible Cloak", 
+        #                      "Time-Turning Hourglass", "Phoenix Feather", "Crystal Ball", "Shape-shifting Potion", "Teleportation Ring", 
+        #                      "surprise me"]
+        #         )
+        #         # Tone/Mood options
+        #         tone = st.selectbox(
+        #             "Choose the Tone/Mood:",
+        #             options=["Joyful", "Exciting", "Mysterious", "Playful", "Heartwarming", 
+        #                      "Suspenseful", "Whimsical", "Inspirational", "Spooky", "Nostalgic", 
+        #                      "surprise me"]
+        #         )
+        #         # Submit button
+        #         submitted = st.form_submit_button("Create Story")
+        #         if submitted:               # Process the selections and generate the story (this part will interface with the AI model)
+        #             #def display_story_form(relation, name_of_reciptient, genre, setting, supporting_character, plot_elements, theme, magical_objects, tone):
+        #                 st.write(f"I'd like you create a story about my {relation}, {name_of_reciptient}. The story's Genre will be: {genre}, with a setting as: {setting}. A supporting character will be: {supporting_characters}, with a plot element of: {plot_elements}. The theme of the story is: {theme}, a magical object, included somewhere in the story is a: {magical_objects}, and the tone will be: {tone} ")
+        # create_story_form(
             
         # )
         # st.markdown('##### Lets start with the basic details.')            
