@@ -7,16 +7,15 @@ add_auth(required=True)
 
 def checkout_form():
     with st.expander('',expanded=True):        
-        
+        st.markdown("Let's make a story")
         options = ['Storybook Elements','AI Builder','Summary/organize','Payment Information', 'download finished materials']        
         radio_cols = st.columns([.25,10])
         step = radio_cols[1].radio(label='',label_visibility='collapsed', options=options,horizontal=True,index=0)                
         if step == 'Storybook Elements':
             st.text("build a story for your loved one! once you're done, send it over to them as a physical copy or as a digital file!")
         def create_story_form():
-            with st.form("story_form"):
                 # Genre options
-                genre = st.selectbox(
+            genre = st.selectbox(
                     "Choose the Genre:",
                     options=["Adventure", "Fairy Tale", "Animal Story", "Space Exploration", "Magical Fantasy", 
                              "Historical Adventure", "Mythological Tale", "Superhero Story", "Time Travel Adventure", "Dystopian World", 
@@ -71,54 +70,54 @@ def checkout_form():
                         st.write(f"I'd like you create a story about my {relation}, {name_of_reciptient}. The story's Genre will be: {genre}, with a setting as: {setting}. A supporting character will be: {supporting_characters}, with a plot element of: {plot_elements}. The theme of the story is: {theme}, a magical object, included somewhere in the story is a: {magical_objects}, and the tone will be: {tone} ")
         create_story_form(
             
-        )
-        st.markdown('##### Lets start with the basic details.')            
-        name_cols = st.columns(2)
-        name_cols[0].text_input('**Travler Name**', placeholder='First Name')
-        name_cols[1].text_input('Last Name',label_visibility='hidden', placeholder='Last Name')
-        st.text_input('**Traveler Email**',placeholder='📧 Your Email')
-        f_cols = st.columns(2)                  
-        f_cols[1].selectbox('**Traveler Origin**',options=['United States','Canada','Mexico'] )
-        f_cols[0].date_input('**Traveler Date of Birth**')
-            if step == 'AI Builder':
-            date_cols =st.columns(3)
-            date_cols[0].date_input('Check In Date')
-            date_cols[1].date_input('Check Out Date')
-            date_cols[2].selectbox('Room Type',options=['Standard','Deluxe','Suite'])
-            st.markdown('---')
-            option_cols = st.columns(2)
-            with option_cols[0]:                                                                
-                image = Image.open('assets/desert.jpg')
-                st.image(image, caption='Our Desert View',use_column_width=True)
-                st.write('**Room, 1 King Bed**')                
-                dim_cols = st.columns(2)
-                dim_cols[0].write('📏 550 sq ft')
-                dim_cols[0].write('🌵 Desert View')
-                dim_cols[1].write('👥 Sleeps 2')
-                dim_cols[1].write('🛏️ King Size')          
-                policy_cols = st.columns(2)          
-                policy = policy_cols[0].radio('**Cancellation Policy**',options=['Non-Refundable','Fully Refundable'],horizontal=False,key='option1')
-                delta_color, delta_val = ('off',0) if policy == 'Non-Refundable' else ('normal',50)
-                base_price = 450
-                price = base_price if policy == 'Non-Refundable' else base_price + delta_val                                
-                policy_cols[1].metric('**Nightly Price**',value=f'$ {price}',delta_color=delta_color,delta=f'$ {delta_val}')
-                st.button('Select',type='primary',key='select_1')
-            with option_cols[1]:                
-                image = Image.open('assets/ocean.jpg')
-                st.image(image, caption='Our Ocean View',use_column_width=True)
-                st.write('**Room, 2 Full Beds**')                
-                dim_cols = st.columns(2)
-                dim_cols[0].write('📏 600 sq ft')
-                dim_cols[0].write('🏖️ Ocean View')
-                dim_cols[1].write('👥 Sleeps 4')
-                dim_cols[1].write('🛏️ Full Size')                                    
-                policy_cols = st.columns(2)                
-                policy = policy_cols[0].radio('**Cancellation Policy**',options=['Non-Refundable','Fully Refundable'],horizontal=False,key='option2')
-                delta_color, delta_val = ('off',0) if policy == 'Non-Refundable' else ('normal',50)
-                base_price = 450
-                price = base_price if policy == 'Non-Refundable' else base_price + delta_val                
-                policy_cols[1].metric('**Nightly Price**',value=f'$ {price}',delta_color=delta_color,delta=f'$ {delta_val}')#,label_visibility='hidden'
-                st.button('Select',type='primary',key='select_2')                                  
+        # )
+        # st.markdown('##### Lets start with the basic details.')            
+        # name_cols = st.columns(2)
+        # name_cols[0].text_input('**Travler Name**', placeholder='First Name')
+        # name_cols[1].text_input('Last Name',label_visibility='hidden', placeholder='Last Name')
+        # st.text_input('**Traveler Email**',placeholder='📧 Your Email')
+        # f_cols = st.columns(2)                  
+        # f_cols[1].selectbox('**Traveler Origin**',options=['United States','Canada','Mexico'] )
+        # f_cols[0].date_input('**Traveler Date of Birth**')
+        #     if step == 'AI Builder':
+        #     date_cols =st.columns(3)
+        #     date_cols[0].date_input('Check In Date')
+        #     date_cols[1].date_input('Check Out Date')
+        #     date_cols[2].selectbox('Room Type',options=['Standard','Deluxe','Suite'])
+        #     st.markdown('---')
+        #     option_cols = st.columns(2)
+        #     with option_cols[0]:                                                                
+        #         image = Image.open('assets/desert.jpg')
+        #         st.image(image, caption='Our Desert View',use_column_width=True)
+        #         st.write('**Room, 1 King Bed**')                
+        #         dim_cols = st.columns(2)
+        #         dim_cols[0].write('📏 550 sq ft')
+        #         dim_cols[0].write('🌵 Desert View')
+        #         dim_cols[1].write('👥 Sleeps 2')
+        #         dim_cols[1].write('🛏️ King Size')          
+        #         policy_cols = st.columns(2)          
+        #         policy = policy_cols[0].radio('**Cancellation Policy**',options=['Non-Refundable','Fully Refundable'],horizontal=False,key='option1')
+        #         delta_color, delta_val = ('off',0) if policy == 'Non-Refundable' else ('normal',50)
+        #         base_price = 450
+        #         price = base_price if policy == 'Non-Refundable' else base_price + delta_val                                
+        #         policy_cols[1].metric('**Nightly Price**',value=f'$ {price}',delta_color=delta_color,delta=f'$ {delta_val}')
+        #         st.button('Select',type='primary',key='select_1')
+        #     with option_cols[1]:                
+        #         image = Image.open('assets/ocean.jpg')
+        #         st.image(image, caption='Our Ocean View',use_column_width=True)
+        #         st.write('**Room, 2 Full Beds**')                
+        #         dim_cols = st.columns(2)
+        #         dim_cols[0].write('📏 600 sq ft')
+        #         dim_cols[0].write('🏖️ Ocean View')
+        #         dim_cols[1].write('👥 Sleeps 4')
+        #         dim_cols[1].write('🛏️ Full Size')                                    
+        #         policy_cols = st.columns(2)                
+        #         policy = policy_cols[0].radio('**Cancellation Policy**',options=['Non-Refundable','Fully Refundable'],horizontal=False,key='option2')
+        #         delta_color, delta_val = ('off',0) if policy == 'Non-Refundable' else ('normal',50)
+        #         base_price = 450
+        #         price = base_price if policy == 'Non-Refundable' else base_price + delta_val                
+        #         policy_cols[1].metric('**Nightly Price**',value=f'$ {price}',delta_color=delta_color,delta=f'$ {delta_val}')#,label_visibility='hidden'
+        #         st.button('Select',type='primary',key='select_2')                                  
 
         if step == 'Summary/organize': 
             st.markdown('---')            
