@@ -16,7 +16,7 @@ def checkout_form():
         def create_story_form():
                 # Genre options
             genre = st.selectbox(
-                st.write("Choose the Genre")
+                label=('Choose the Genre')
                 options=["Adventure", "Fairy Tale", "Animal Story", "Space Exploration", "Magical Fantasy", 
                              "Historical Adventure", "Mythological Tale", "Superhero Story", "Time Travel Adventure", "Dystopian World", 
                              "surprise me"]
