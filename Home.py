@@ -1,9 +1,7 @@
 import streamlit as st
-from st_paywall import add_auth
+#from st_paywall import add_auth
 
 st.title("Welcome to Imaginarium Weaver")
-
-
 
 def create_story_form():
     with st.expander('',expanded=True):        
