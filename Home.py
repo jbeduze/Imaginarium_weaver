@@ -89,7 +89,7 @@ def elements_form():
                 )
                  #Submit button
             submitted = st.form_submit_button("Create Story")
-                if submitted:               # Process the selections and generate the story (this part will interface with the AI model)
+            if submitted:               # Process the selections and generate the story (this part will interface with the AI model)
                 def display_story_form(relation, name_of_reciptient, genre, setting, supporting_character, plot_elements, theme, magical_objects, tone):
                          st.write(f"I'd like you create a story about my {relation}, {name_of_reciptient}. The story's Genre will be: {genre}, with a setting as: {setting}. A supporting character will be: {supporting_characters}, with a plot element of: {plot_elements}. The theme of the story is: {theme}, a magical object, included somewhere in the story is a: {magical_objects}, and the tone will be: {tone} ")
          create_story_Elements_form(
