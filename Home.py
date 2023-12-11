@@ -12,7 +12,7 @@ def checkout_form():
         radio_cols = st.columns([.25,10])
         step = radio_cols[1].radio(label='',label_visibility='collapsed', options=options,horizontal=True,index=0)                
         if step == 'Storybook Elements':
-            st.markdown('##### Let's start with the basic details.')            
+            st.markdown('##### Lets start with the basic details.')            
             name_cols = st.columns(2)
             name_cols[0].text_input('**Travler Name**', placeholder='First Name')
             name_cols[1].text_input('Last Name',label_visibility='hidden', placeholder='Last Name')
@@ -89,6 +89,8 @@ def checkout_form():
             footer_cols = st.columns([5,1])                 
             agreed = footer_cols[0].checkbox('I agree to terms and conditions')
             footer_cols[1].button('Submit',type='primary',key='submit_btn',disabled=not agreed)
+        if step == 'download finished materials'
+        #only accesible if payment was submitted
 
 ##### wizard functions ####
 def wizard_form_header():
