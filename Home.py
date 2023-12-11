@@ -29,6 +29,7 @@ if name_of_reciptient:
 "---"
 
 #def create_story_form():
+st.container:
     with st.expander('',expanded=True):        
         st.markdown("Let's make a story")
         options = ['Storybook Elements','AI Builder','Summary/organize','Payment Information', 'download finished materials']        
