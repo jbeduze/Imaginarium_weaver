@@ -3,7 +3,7 @@ import streamlit as st
 
 st.title("Welcome to Imaginarium Weaver")
 
-st.subtitle("Create custom printed material for a family member, a loved one, or anyone!")
+st.write("Create custom printed material for a family member, a loved one, or anyone!")
 # File uploader allows user to add their own image
 uploaded_img = st.file_uploader("Upload a picture of the person/pet you'd like on a card, board, or coloring page", type=['png', 'jpg', 'jpeg', 'gif'])
 
