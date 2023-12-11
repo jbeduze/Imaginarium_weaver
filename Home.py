@@ -3,7 +3,7 @@ from st_paywall import add_auth
 
 st.title("Welcome to Imaginarium Weaver")
 
-add_auth(required=True)
+
 
 def create_story_form():
     with st.expander('',expanded=True):        
@@ -153,6 +153,8 @@ def create_story_form():
         #only accesible if payment was submitted
 
 ##### wizard functions ####
+
+add_auth(required=True)
 def wizard_form_header():
     sf_header_cols = st.columns([1,1.75,1])
         
