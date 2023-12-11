@@ -5,6 +5,110 @@ st.title("Welcome to Imaginarium Weaver")
 
 add_auth(required=True)
 
+def checkout_form():
+    with st.expander('',expanded=True):        
+        
+        options = ['Storybook Elements','AI Builder','Summary/organize','Payment Information', 'download finished materials']        
+        radio_cols = st.columns([.25,10])
+        step = radio_cols[1].radio(label='',label_visibility='collapsed', options=options,horizontal=True,index=0)                
+        if step == 'Storybook Elements':
+            st.markdown('##### Let's start with the basic details.')            
+            name_cols = st.columns(2)
+            name_cols[0].text_input('**Travler Name**', placeholder='First Name')
+            name_cols[1].text_input('Last Name',label_visibility='hidden', placeholder='Last Name')
+            st.text_input('**Traveler Email**',placeholder='📧 Your Email')
+            f_cols = st.columns(2)                  
+            f_cols[1].selectbox('**Traveler Origin**',options=['United States','Canada','Mexico'] )
+            f_cols[0].date_input('**Traveler Date of Birth**')
+        if step == 'AI Builder':
+            date_cols =st.columns(3)
+            date_cols[0].date_input('Check In Date')
+            date_cols[1].date_input('Check Out Date')
+            date_cols[2].selectbox('Room Type',options=['Standard','Deluxe','Suite'])
+            st.markdown('---')
+            option_cols = st.columns(2)
+            with option_cols[0]:                                                                
+                image = Image.open('assets/desert.jpg')
+                st.image(image, caption='Our Desert View',use_column_width=True)
+                st.write('**Room, 1 King Bed**')                
+                dim_cols = st.columns(2)
+                dim_cols[0].write('📏 550 sq ft')
+                dim_cols[0].write('🌵 Desert View')
+                dim_cols[1].write('👥 Sleeps 2')
+                dim_cols[1].write('🛏️ King Size')          
+                policy_cols = st.columns(2)          
+                policy = policy_cols[0].radio('**Cancellation Policy**',options=['Non-Refundable','Fully Refundable'],horizontal=False,key='option1')
+                delta_color, delta_val = ('off',0) if policy == 'Non-Refundable' else ('normal',50)
+                base_price = 450
+                price = base_price if policy == 'Non-Refundable' else base_price + delta_val                                
+                policy_cols[1].metric('**Nightly Price**',value=f'$ {price}',delta_color=delta_color,delta=f'$ {delta_val}')
+                st.button('Select',type='primary',key='select_1')
+            with option_cols[1]:                
+                image = Image.open('assets/ocean.jpg')
+                st.image(image, caption='Our Ocean View',use_column_width=True)
+                st.write('**Room, 2 Full Beds**')                
+                dim_cols = st.columns(2)
+                dim_cols[0].write('📏 600 sq ft')
+                dim_cols[0].write('🏖️ Ocean View')
+                dim_cols[1].write('👥 Sleeps 4')
+                dim_cols[1].write('🛏️ Full Size')                                    
+                policy_cols = st.columns(2)                
+                policy = policy_cols[0].radio('**Cancellation Policy**',options=['Non-Refundable','Fully Refundable'],horizontal=False,key='option2')
+                delta_color, delta_val = ('off',0) if policy == 'Non-Refundable' else ('normal',50)
+                base_price = 450
+                price = base_price if policy == 'Non-Refundable' else base_price + delta_val                
+                policy_cols[1].metric('**Nightly Price**',value=f'$ {price}',delta_color=delta_color,delta=f'$ {delta_val}')#,label_visibility='hidden'
+                st.button('Select',type='primary',key='select_2')                                  
+
+        if step == 'Summary/organize': 
+            st.markdown('---')            
+            st.write('**Traveler Information**')
+            summ_cols = st.columns(2)           
+            summ_cols[0].text_input('**Travler Full Name**', placeholder='First Name',disabled=True)            
+            summ_cols[1].text_input('**Traveler Email**',placeholder='Your Email',disabled=True)       
+            f_cols = st.columns(2)                  
+            f_cols[1].text_input('**Traveler Origin**',disabled=True,placeholder='United States')
+            f_cols[0].date_input('**Traveler Date of Birth**',disabled=True)                                         
+            st.write('**Arrival & Departure Information**')
+            date_cols =st.columns(2)
+            date_cols[0].date_input('**Arrival Date**',disabled=True)
+            date_cols[1].date_input('**Departure Date**',disabled=True)                        
+            st.write('**Room Information**')
+            room_cols = st.columns(2)
+            room_cols[0].text_input('**Room Type**',disabled=True,placeholder='Standard')
+            room_cols[1].text_input('**Beds**',disabled=True,placeholder='1 King')
+
+        if step == 'Payment Information':
+            st.text_input('**Credit Card Information**',placeholder='Card Number')
+            exp_cols = st.columns(2)
+            exp_cols[0].text_input('',placeholder='Expires',label_visibility='collapsed')
+            exp_cols[1].text_input('',placeholder='CVV',label_visibility='collapsed')
+            st.text_input('**Billing Address**',placeholder='Address 1')
+            st.text_input('',placeholder='Address 2',label_visibility='collapsed')
+            st.text_input('',placeholder='Postal Code',label_visibility='collapsed')
+            footer_cols = st.columns([5,1])                 
+            agreed = footer_cols[0].checkbox('I agree to terms and conditions')
+            footer_cols[1].button('Submit',type='primary',key='submit_btn',disabled=not agreed)
+
+##### wizard functions ####
+def wizard_form_header():
+    sf_header_cols = st.columns([1,1.75,1])
+        
+    with sf_header_cols[1]:            
+        st.subheader('Load Data to Snowflake')
+            
+    # determines button color which should be red when user is on that given step
+    wh_type = 'primary' if st.session_state['current_step'] == 1 else 'secondary'
+    ff_type = 'primary' if st.session_state['current_step'] == 2 else 'secondary'
+    lo_type = 'primary' if st.session_state['current_step'] == 3 else 'secondary'
+    sf_type = 'primary' if st.session_state['current_step'] == 4 else 'secondary'
+
+    step_cols = st.columns([.5,.85,.85,.85,.85,.5])    
+    step_cols[1].button('Warehouses',on_click=set_form_step,args=['Jump',1],type=wh_type)
+    step_cols[2].button('File Format',on_click=set_form_step,args=['Jump',2],type=ff_type)        
+    step_cols[3].button('Load Options',on_click=set_form_step,args=['Jump',3],type=lo_type)      
+    step_cols[4].button('Source Files',on_click=set_form_step,args=['Jump',4],type=sf_type)
+        
 st.write(f"Subscription Status: {st.session_state.user_subscribed}")
 st.write("congrats on your future winnings now get in there champ")
 st.write(f'for your records and future logins, your email is: {st.session_state.email}')
