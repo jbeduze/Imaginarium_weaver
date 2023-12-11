@@ -73,14 +73,14 @@ def checkout_form():
             
         )
         st.markdown('##### Lets start with the basic details.')            
-            name_cols = st.columns(2)
-            name_cols[0].text_input('**Travler Name**', placeholder='First Name')
-            name_cols[1].text_input('Last Name',label_visibility='hidden', placeholder='Last Name')
-            st.text_input('**Traveler Email**',placeholder='📧 Your Email')
-            f_cols = st.columns(2)                  
-            f_cols[1].selectbox('**Traveler Origin**',options=['United States','Canada','Mexico'] )
-            f_cols[0].date_input('**Traveler Date of Birth**')
-        if step == 'AI Builder':
+        name_cols = st.columns(2)
+        name_cols[0].text_input('**Travler Name**', placeholder='First Name')
+        name_cols[1].text_input('Last Name',label_visibility='hidden', placeholder='Last Name')
+        st.text_input('**Traveler Email**',placeholder='📧 Your Email')
+        f_cols = st.columns(2)                  
+        f_cols[1].selectbox('**Traveler Origin**',options=['United States','Canada','Mexico'] )
+        f_cols[0].date_input('**Traveler Date of Birth**')
+            if step == 'AI Builder':
             date_cols =st.columns(3)
             date_cols[0].date_input('Check In Date')
             date_cols[1].date_input('Check Out Date')
