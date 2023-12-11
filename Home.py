@@ -154,28 +154,28 @@ def create_story_form():
 
 ##### wizard functions ####
 
-add_auth(required=True)
-def wizard_form_header():
-    sf_header_cols = st.columns([1,1.75,1])
+# add_auth(required=True)
+# def wizard_form_header():
+#     sf_header_cols = st.columns([1,1.75,1])
         
-    with sf_header_cols[1]:            
-        st.subheader('Load Data to Snowflake')
+#     with sf_header_cols[1]:            
+#         st.subheader('Load Data to Snowflake')
             
-    # determines button color which should be red when user is on that given step
-    wh_type = 'primary' if st.session_state['current_step'] == 1 else 'secondary'
-    ff_type = 'primary' if st.session_state['current_step'] == 2 else 'secondary'
-    lo_type = 'primary' if st.session_state['current_step'] == 3 else 'secondary'
-    sf_type = 'primary' if st.session_state['current_step'] == 4 else 'secondary'
+#     # determines button color which should be red when user is on that given step
+#     wh_type = 'primary' if st.session_state['current_step'] == 1 else 'secondary'
+#     ff_type = 'primary' if st.session_state['current_step'] == 2 else 'secondary'
+#     lo_type = 'primary' if st.session_state['current_step'] == 3 else 'secondary'
+#     sf_type = 'primary' if st.session_state['current_step'] == 4 else 'secondary'
 
-    step_cols = st.columns([.5,.85,.85,.85,.85,.5])    
-    step_cols[1].button('Warehouses',on_click=set_form_step,args=['Jump',1],type=wh_type)
-    step_cols[2].button('File Format',on_click=set_form_step,args=['Jump',2],type=ff_type)        
-    step_cols[3].button('Load Options',on_click=set_form_step,args=['Jump',3],type=lo_type)      
-    step_cols[4].button('Source Files',on_click=set_form_step,args=['Jump',4],type=sf_type)
+#     step_cols = st.columns([.5,.85,.85,.85,.85,.5])    
+#     step_cols[1].button('Warehouses',on_click=set_form_step,args=['Jump',1],type=wh_type)
+#     step_cols[2].button('File Format',on_click=set_form_step,args=['Jump',2],type=ff_type)        
+#     step_cols[3].button('Load Options',on_click=set_form_step,args=['Jump',3],type=lo_type)      
+#     step_cols[4].button('Source Files',on_click=set_form_step,args=['Jump',4],type=sf_type)
         
-st.write(f"Subscription Status: {st.session_state.user_subscribed}")
-st.write("congrats on your future winnings now get in there champ")
-st.write(f'for your records and future logins, your email is: {st.session_state.email}')
+# st.write(f"Subscription Status: {st.session_state.user_subscribed}")
+# st.write("congrats on your future winnings now get in there champ")
+# st.write(f'for your records and future logins, your email is: {st.session_state.email}')
 
 st.title("Create custom printed material for a family member, a loved one, or anyone!")
 # File uploader allows user to add their own image
