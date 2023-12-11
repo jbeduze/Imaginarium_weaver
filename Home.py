@@ -87,7 +87,6 @@ def elements_form():
                              "Suspenseful", "Whimsical", "Inspirational", "Spooky", "Nostalgic", 
                              "surprise me"]
                 )
-                 #Submit button
             submitted = st.form_submit_button("Create Story")
             if submitted:               # Process the selections and generate the story (this part will interface with the AI model)
                 def display_story_form(relation, name_of_reciptient, genre, setting, supporting_character, plot_elements, theme, magical_objects, tone):
