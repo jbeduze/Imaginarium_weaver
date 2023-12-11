@@ -5,7 +5,7 @@ st.title("Welcome to Imaginarium Weaver")
 
 add_auth(required=True)
 
-def 
+def create_story_form():
     with st.expander('',expanded=True):        
         st.markdown("Let's make a story")
         options = ['Storybook Elements','AI Builder','Summary/organize','Payment Information', 'download finished materials']        
@@ -13,7 +13,7 @@ def
         step = radio_cols[1].radio(label='',label_visibility='collapsed', options=options,horizontal=True,index=0)                
         if step == 'Storybook Elements':
             st.markdown("build a story for your loved one! once you're done, send it over to them as a physical copy or as a digital file!")
-            def create_story_form():
+            def create_story_Elements_form():
                  # Genre options
                 genre = st.selectbox(
                     "Choose the Genre:",
